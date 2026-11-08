@@ -12,7 +12,7 @@ window.SITE_DATA = {
   profile: {
     name: "Satya Krishna Ammu",
     handle: "satyaammu93",
-    tagline: "Materials and MEMS scientist | Piezoelectric devices, FEM modeling and generative models for materials",
+    tagline: "Materials scientist | Functional materials and devices, FEM and AI-driven discovery",
     // Path to a photo inside this repo, e.g. "assets/satya.jpg".
     // Leave empty to show the neutral initials avatar.
     photo: "assets/profile.webp",
@@ -62,8 +62,8 @@ window.SITE_DATA = {
       year: 2024,
       role: "First author",
       url: "https://doi.org/10.1002/admt.202400858",
-      thumb: { src: "assets/papers/admt-thumb.webp",
-               alt: "Diagram of a printed ultrasound transducer: piezoelectric membrane between electrodes on a printed support" },
+      thumb: { src: "assets/papers/admt-ldv-thumb.webp", still: "assets/papers/admt-ldv-thumb-still.webp",
+               alt: "Laser-vibrometry animation of a printed piezoelectric membrane in its fundamental mode, bulging up and sagging down as one dome" },
       summary:
         "How do you keep ceramic particles dispersed long enough to print a working transducer? I synthesized Li-doped KNN " +
         "piezoceramic powder, formulated UV-curable piezocomposite inks and built a custom printer to deal with sedimentation. " +
@@ -76,11 +76,15 @@ window.SITE_DATA = {
         { src: "assets/papers/admt-vibrometry.webp",
           alt: "Laser vibrometry setup and measured displacement spectrum showing three vibration modes",
           caption: "Laser vibrometry: setup and measured vibration modes." },
+        { src: "assets/papers/admt-ldv.webp", still: "assets/papers/admt-ldv-still.webp",
+          alt: "Animated laser-vibrometry scan of a printed membrane at 70 kHz: the whole membrane moves up and down in phase, with the largest motion at the centre",
+          caption: "Measured fundamental mode of a printed membrane at 70 kHz (laser-vibrometry scan)." },
         { src: "assets/papers/admt-sensing.webp",
           alt: "Sent and received ultrasound signals with a time delay, and measured versus actual distance on a straight line",
           caption: "Distance sensing from the time delay between sent and received signals." }
       ],
-      credit: "Figures: Ammu et al., Adv. Mater. Technol. 2024, © The Authors, CC BY-NC-ND 4.0 (panels excerpted)."
+      credit: "Figures: Ammu et al., Adv. Mater. Technol. 2024, © The Authors, CC BY-NC-ND 4.0 (panels excerpted). " +
+              "Animation: author's own laser-vibrometry data."
     },
     {
       title: "Piezoelectric truss metamaterials: data-driven design and additive manufacturing",

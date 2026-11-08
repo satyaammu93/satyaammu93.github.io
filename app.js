@@ -49,6 +49,14 @@
     return node;
   }
 
+  // An <img>, or for an animation with a `still` frame, a <picture> that shows the still
+  // to visitors who ask their system for reduced motion.
+  function media(src, still, attrs) {
+    var img = el("img", Object.assign({ src: src }, attrs));
+    if (!still) return img;
+    return el("picture", null, el("source", { media: "(prefers-reduced-motion: reduce)", srcset: still }), img);
+  }
+
   function extLink(url, children, extra) {
     var attrs = Object.assign({ href: url, rel: "noopener" }, extra || {});
     var a = el("a", attrs);
@@ -168,7 +176,7 @@
     // Thumbnail with journal badge (a button that opens the summary panel)
     var thumb = null;
     if (pub.thumb) {
-      var img = el("img", { src: pub.thumb.src, alt: pub.thumb.alt, loading: "lazy", width: "480", height: "360" });
+      var img = media(pub.thumb.src, pub.thumb.still, { alt: pub.thumb.alt, loading: "lazy", width: "480", height: "360" });
       if (hasPanel) {
         thumb = el("button", { type: "button", class: "pub-thumb", "aria-controls": panelId, "aria-expanded": "false",
                                "aria-label": "Show summary and figures: " + pub.title }, img);
@@ -203,7 +211,7 @@
       var figs = el("div", { class: "pub-figs" });
       pub.figures.forEach(function (f) {
         figs.appendChild(el("figure", null,
-          extLink(f.src, [el("img", { src: f.src, alt: f.alt, loading: "lazy" })],
+          extLink(f.src, [media(f.src, f.still, { alt: f.alt, loading: "lazy" })],
                   { class: "fig-frame", "aria-label": "Open full-size figure: " + (f.caption || f.alt) }),
           f.caption ? el("figcaption", { text: f.caption }) : null));
       });
