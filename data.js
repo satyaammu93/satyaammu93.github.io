@@ -23,7 +23,8 @@ window.SITE_DATA = {
     links: [
       { icon: "github",   label: "GitHub",         text: "satyaammu93",    url: "https://github.com/satyaammu93" },
       { icon: "linkedin", label: "LinkedIn",       text: "in/satyaammu",   url: "https://www.linkedin.com/in/satyaammu/" },
-      { icon: "scholar",  label: "Google Scholar", text: "Google Scholar", url: "https://scholar.google.com/citations?user=9MKcu7MAAAAJ&hl=en" }
+      { icon: "scholar",  label: "Google Scholar", text: "Google Scholar", url: "https://scholar.google.com/citations?user=9MKcu7MAAAAJ&hl=en" },
+      { icon: "orcid",    label: "ORCID",          text: "0000-0001-6099-5327", url: "https://orcid.org/0000-0001-6099-5327" }
     ]
   },
 
