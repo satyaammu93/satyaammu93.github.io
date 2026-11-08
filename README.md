@@ -113,6 +113,15 @@ Later updates: edit `data.js`, then `git commit -am "Update projects" && git pus
 Existing project pages such as `https://satyaammu93.github.io/jane-street-asic-2026/`
 keep working; they are served from their own repositories.
 
+## Visitor stats
+
+[GoatCounter](https://www.goatcounter.com) counts visits (no cookies, no personal data).
+The dashboard is at https://satyaammu.goatcounter.com. Besides page views it records events:
+`summary: <journal> <year>` when a paper's summary is opened, and `click: <destination>`
+for every outgoing link (DOI, LinkedIn, GitHub, …). Visits from localhost are not counted.
+To stop counting your own visits, open https://satyaammu93.github.io/#toggle-goatcounter
+once in each browser.
+
 ## Credits
 
 Icons for repo, code, paper, demo, external link and GitHub come from

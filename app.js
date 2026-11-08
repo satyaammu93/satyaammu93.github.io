@@ -177,6 +177,7 @@
       panel.hidden = !open;
       toggles.forEach(function (t) { t.setAttribute("aria-expanded", String(open)); });
       summaryBtn.textContent = open ? "Hide summary" : "Summary";
+      if (open) track("summary: " + (pub.abbr || pub.venue) + " " + pub.year, pub.title);
     }
 
     // Thumbnail with journal badge (a button that opens the summary panel)
@@ -292,4 +293,20 @@
       }
     }, { passive: true });
   }
+
+  // GoatCounter events: which links and summaries visitors use. Does nothing until
+  // count.js has loaded, and count.js itself ignores localhost.
+  function track(path, title) {
+    var gc = window.goatcounter;
+    if (gc && gc.count) gc.count({ path: path, title: title || path, event: true });
+  }
+  function trackLink(e) {
+    if (e.type === "auxclick" && e.button !== 1) return;  // middle-click opens a new tab
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a || a.getAttribute("href").charAt(0) === "#") return;
+    var dest = a.host === location.host ? a.pathname : a.hostname + a.pathname;
+    track("click: " + dest, (a.getAttribute("aria-label") || a.textContent).trim());
+  }
+  document.addEventListener("click", trackLink);
+  document.addEventListener("auxclick", trackLink);
 })();
